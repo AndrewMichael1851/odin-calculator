@@ -1,5 +1,5 @@
 # odin-calculator
-A small calculator page made for The Odin Project.
+A small calculator page made with Javascript for TOP.
 
 ## Introduction
 This is a repo for the "Project: Calculator" lesson in The Odin Project:
