@@ -3,7 +3,7 @@
 /****************************/
 
 // Add the storage variables for the output screen.
-let currentSolution;
+let currentSolution = 0;
 let inputNumber = 0;
 let inputFunction = '';
 
