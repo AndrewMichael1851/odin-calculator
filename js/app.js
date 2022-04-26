@@ -1,7 +1,40 @@
 /****************************/
-/*** Odin Calculator v0.2 ***/
+/*** Odin Calculator v0.3 ***/
 /****************************/
 
+// Add the storage variables for the output screen.
+let currentSolution;
+let inputNumber = 0;
+let inputFunction = '';
+
+// Add the event listener constants.
+const buttons = document.querySelectorAll('.button');
+const functions = document.querySelectorAll('.function');
+const currentScreen = document.getElementById('currentOperationScreen');
+const lastScreen = document.getElementById('lastOperationScreen');
+
+// Add the number event listener.
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function (e) {
+        inputNumber = parseInt(e.target.innerText);
+        currentScreen.innerText = inputNumber;
+        lastScreen.innerText = lastScreen.innerText + ' ' + inputNumber;
+        console.log('Input: ' + inputNumber);
+    });
+};
+
+// Add the function event listener.
+for (let i = 0; i < functions.length; i++) {
+    functions[i].addEventListener('click', function (e) {
+        inputFunction = e.target.innerText.toString();
+        currentScreen.innerText = inputFunction;
+        lastScreen.innerText = lastScreen.innerText + ' ' + inputFunction;
+        console.log('Function: ' + inputFunction);
+    });
+};
+
+// OLD CODE
+/*
 // Add the storage variables.
 let startNumber = '';
 let inputNumber = '';
@@ -79,3 +112,4 @@ function operate(a, operator, b) {
             console.log('Error: Use an accepted operator: (+, -, *, /).')
     }
 }
+*/
