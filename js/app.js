@@ -3,9 +3,11 @@
 /****************************/
 
 // Add the storage variables for the output screen.
-let currentSolution = 0;
-let inputNumber = 0;
-let inputFunction = '';
+let input = '';
+let currentNumber = '';
+let priorNumber = '';
+let priorOperator = '';
+let solution = '';
 
 // Add the event listener constants.
 const buttons = document.querySelectorAll('.button');
@@ -13,25 +15,104 @@ const functions = document.querySelectorAll('.function');
 const currentScreen = document.getElementById('currentOperationScreen');
 const lastScreen = document.getElementById('lastOperationScreen');
 
-// Add the number event listener.
+// Add the event listener.
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function (e) {
-        inputNumber = parseInt(e.target.innerText);
-        currentScreen.innerText = inputNumber;
-        lastScreen.innerText = lastScreen.innerText + ' ' + inputNumber;
-        console.log('Input: ' + inputNumber);
+        input = e.target.innerText;
+
+        // Math operation swtich.
+        switch (input) {
+            case '+':
+                priorNumber = currentNumber;
+                priorOperator = input;
+                currentNumber = '';
+                console.log(input);
+                break;
+            case '-':
+                priorNumber = currentNumber;
+                priorOperator = input;
+                currentNumber = '';
+                console.log(input);
+                break;
+            case '*':
+                priorNumber = currentNumber;
+                priorOperator = input;
+                currentNumber = '';
+                console.log(input);
+                break;
+            case '/':
+                priorNumber = currentNumber;
+                priorOperator = input;
+                currentNumber = '';
+                console.log(input);
+                break;
+            case '.':
+                priorNumber = currentNumber;
+                priorOperator = input;
+                currentNumber = '';
+                console.log(input);
+                break;
+            case '=':
+                switch (priorOperator) {
+                    case '+':
+                        solution = addition(parseInt(priorNumber), parseInt(currentNumber));
+                        break;
+                    case '-':
+                        solution = subtraction(parseInt(priorNumber), parseInt(currentNumber));
+                        break;
+                    case '*':
+                        solution = multiplication(parseInt(priorNumber), parseInt(currentNumber));
+                        break;
+                    case '/':
+                        solution = division(parseInt(priorNumber), parseInt(currentNumber));
+                        break;
+                }
+                priorNumber = currentNumber;
+                currentNumber = '';
+                console.log(input);
+                break;
+        }
+
+        // Store the information for the next iteration.
+        if (parseInt(input) || input === '0') {
+            currentNumber = currentNumber + input;
+        }
+
+        // Display the result on the screen and in the console.
+        if (input === '=') {
+            currentScreen.innerText = solution;
+            lastScreen.innerText = '';
+            console.log('Input: ' + input);
+            console.log('Current Number: ' + currentNumber);
+            console.log('Prior Number: ' + priorNumber);
+            console.log('~~~~~~~~~~ END EVENT ~~~~~~~~~~')
+        } else {
+            currentScreen.innerText = input;
+            lastScreen.innerText = lastScreen.innerText + input;
+            console.log('Input: ' + input);
+            console.log('Current Number: ' + currentNumber);
+            console.log('Prior Number: ' + priorNumber);
+            console.log('~~~~~~~~~~ END EVENT ~~~~~~~~~~')
+        }
     });
 };
 
-// Add the function event listener.
-for (let i = 0; i < functions.length; i++) {
-    functions[i].addEventListener('click', function (e) {
-        inputFunction = e.target.innerText.toString();
-        currentScreen.innerText = inputFunction;
-        lastScreen.innerText = lastScreen.innerText + ' ' + inputFunction;
-        console.log('Function: ' + inputFunction);
-    });
-};
+// Basic math functions.
+function addition(a, b) {
+    return a + b;
+}
+
+function subtraction(a, b) {
+    return a - b;
+}
+
+function multiplication(a, b) {
+    return a * b;
+}
+
+function division(a, b) {
+    return a / b;
+}
 
 // OLD CODE
 /*

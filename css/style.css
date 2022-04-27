@@ -82,8 +82,7 @@ main {
     grid-column: span 2;
 }
 
-.button,
-.function {
+.button {
     padding: 20px;
     border: 2px var(--border) solid;
     border-radius: 4px;
