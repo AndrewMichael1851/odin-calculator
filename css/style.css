@@ -83,7 +83,8 @@ main {
 }
 
 .button,
-.function {
+.clear,
+.refresh {
     padding: 20px;
     border: 2px var(--border) solid;
     border-radius: 4px;

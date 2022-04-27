@@ -11,7 +11,8 @@ let solution = '';
 
 // Add the event listener constants.
 const buttons = document.querySelectorAll('.button');
-const functions = document.querySelectorAll('.function');
+const clear = document.querySelectorAll('.clear');
+const refresh = document.querySelectorAll('.refresh');
 const currentScreen = document.getElementById('currentOperationScreen');
 const lastScreen = document.getElementById('lastOperationScreen');
 
@@ -115,8 +116,8 @@ function division(a, b) {
 }
 
 // Functionality for CLEAR button.
-for (let i = 0; i < functions.length; i++) {
-    functions[i].addEventListener('click', function (e) {
+for (let i = 0; i < clear.length; i++) {
+    clear[i].addEventListener('click', function (e) {
         input = '';
         currentNumber = 0;
         priorNumber = '';
@@ -126,6 +127,13 @@ for (let i = 0; i < functions.length; i++) {
         lastScreen.innerText = priorNumber;
         console.log('FULL CLEAR');
         console.log('~~~~~~~~~~ END EVENT ~~~~~~~~~~')
+    });
+}
+
+// Functionality for the REFRESH button.
+for (let i = 0; i < refresh.length; i++) {
+    refresh[i].addEventListener('click', function (e) {
+        window.location.reload();
     });
 }
 
