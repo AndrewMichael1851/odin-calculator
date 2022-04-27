@@ -95,7 +95,7 @@ for (let i = 0; i < buttons.length; i++) {
             console.log('~~~~~~~~~~ END EVENT ~~~~~~~~~~')
         }
     });
-};
+}
 
 // Basic math functions.
 function addition(a, b) {
@@ -112,6 +112,21 @@ function multiplication(a, b) {
 
 function division(a, b) {
     return a / b;
+}
+
+// Functionality for CLEAR button.
+for (let i = 0; i < functions.length; i++) {
+    functions[i].addEventListener('click', function (e) {
+        input = '';
+        currentNumber = 0;
+        priorNumber = '';
+        priorOperator = '';
+        solution = '';
+        currentScreen.innerText = currentNumber;
+        lastScreen.innerText = priorNumber;
+        console.log('FULL CLEAR');
+        console.log('~~~~~~~~~~ END EVENT ~~~~~~~~~~')
+    });
 }
 
 // OLD CODE
