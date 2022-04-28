@@ -2,102 +2,23 @@
 /*** Odin Calculator v1.1 ***/
 /****************************/
 
-
-
-/*
-
-// Add the storage variables for the output screen.
-let input = '';
-let currentNumber = '';
-let priorNumber = '';
-let priorOperator = '';
-let solution = '';
+// Add the storage variables for the calculator.
+let firstOperand = '';
+let secondOperand = '';
+let currentOperator = null;
 
 // Add the event listener constants.
-const buttons = document.querySelectorAll('.button');
-const clear = document.querySelectorAll('.clear');
-const refresh = document.querySelectorAll('.refresh');
-const currentScreen = document.getElementById('currentOperationScreen');
-const lastScreen = document.getElementById('lastOperationScreen');
+const equalsButton = document.getElementById('equalsButton');
+const clearButton = document.getElementById('clearButton');
+const refreshButton = document.getElementById('refreshButton');
+const pointButton = document.getElementById('pointButton');
 
-// Add the event listener.
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function (e) {
-        input = e.target.innerText;
+const numberButtons = document.querySelectorAll('[data-number]');
+const operatorButtons = document.querySelectorAll('[data-operator]');
 
-        // Math operation swtich.
-        switch (input) {
-            case '+':
-                priorNumber = currentNumber;
-                priorOperator = input;
-                currentNumber = '';
-                console.log(input);
-                break;
-            case '-':
-                priorNumber = currentNumber;
-                priorOperator = input;
-                currentNumber = '';
-                console.log(input);
-                break;
-            case '*':
-                priorNumber = currentNumber;
-                priorOperator = input;
-                currentNumber = '';
-                console.log(input);
-                break;
-            case '/':
-                priorNumber = currentNumber;
-                priorOperator = input;
-                currentNumber = '';
-                console.log(input);
-                break;
-            case '.':
-                console.log('Not implemented yet.');
-                break;
-            case '=':
-                switch (priorOperator) {
-                    case '+':
-                        solution = addition(parseFloat(priorNumber), parseFloat(currentNumber));
-                        break;
-                    case '-':
-                        solution = subtraction(parseFloat(priorNumber), parseFloat(currentNumber));
-                        break;
-                    case '*':
-                        solution = multiplication(parseFloat(priorNumber), parseFloat(currentNumber));
-                        break;
-                    case '/':
-                        solution = division(parseFloat(priorNumber), parseFloat(currentNumber));
-                        break;
-                }
-                priorNumber = currentNumber;
-                currentNumber = '';
-                console.log(input);
-                break;
-        }
-
-        // Store the information for the next iteration.
-        if (parseFloat(input) || input === '0') {
-            currentNumber = currentNumber + input;
-        }
-
-        // Display the result on the screen and in the console.
-        if (input === '=') {
-            currentScreen.innerText = solution;
-            lastScreen.innerText = '';
-            console.log('Input: ' + input);
-            console.log('Current Number: ' + currentNumber);
-            console.log('Prior Number: ' + priorNumber);
-            console.log('~~~~~~~~~~ END EVENT ~~~~~~~~~~')
-        } else {
-            currentScreen.innerText = input;
-            lastScreen.innerText = lastScreen.innerText + input;
-            console.log('Input: ' + input);
-            console.log('Current Number: ' + currentNumber);
-            console.log('Prior Number: ' + priorNumber);
-            console.log('~~~~~~~~~~ END EVENT ~~~~~~~~~~')
-        }
-    });
-}
+// Add the constants to manage the operations screen.
+const lastOperationScreen = document.getElementById('lastOperationScreen');
+const currentOperationScreen = document.getElementById('currentOperationScreen');
 
 // Basic math functions.
 function addition(a, b) {
@@ -116,25 +37,42 @@ function division(a, b) {
     return a / b;
 }
 
-// Functionality for CLEAR button.
-for (let i = 0; i < clear.length; i++) {
-    clear[i].addEventListener('click', function (e) {
-        input = '';
-        currentNumber = 0;
-        priorNumber = '';
-        priorOperator = '';
-        solution = '';
-        currentScreen.innerText = currentNumber;
-        lastScreen.innerText = priorNumber;
-        console.log('FULL CLEAR');
-        console.log('~~~~~~~~~~ END EVENT ~~~~~~~~~~')
-    });
+// Operator function that calls the basic math functions.
+function operate(operator, a, b) {
+    // Sanitize the inputs.
+    a = Number(a);
+    b = Number(b);
+
+    // Switch logic for operations.
+    switch (operator) {
+        case '+':
+            return addition(a, b);
+            break;
+        case '-':
+            return subtraction(a, b);
+            break;
+        case '*':
+            return multiplication(a, b);
+            break;
+        case '/':
+            return division(a, b);
+            break;
+        default:
+            return null;
+    }
 }
 
-// Functionality for the REFRESH button.
-for (let i = 0; i < refresh.length; i++) {
-    refresh[i].addEventListener('click', function (e) {
-        window.location.reload();
-    });
-}
-*/
+// Event listener controllers that call relevant functions.
+equalsButton.addEventListener('click', /* Evaluate Function */);
+clearButton.addEventListener('click', /* Clear Function */);
+refreshButton.addEventListener('click', /* Refresh Function */);
+pointButton.addEventListener('click', /* Append Decimal Function */);
+
+// Event listener controllers for button clicks.
+numberButtons.forEach((button) => {
+    button.addEventListener('click', () => /* Append Number Function */)
+});
+
+operatorButtons.forEach((button) => {
+    button.addEventListener('click', () => /* Set Operation Function */)
+});

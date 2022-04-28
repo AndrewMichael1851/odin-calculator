@@ -16,7 +16,6 @@ Important Note: Before you get started with this calculator project, we need to 
 
 ## Todo
 1. Refactor the code to better align with the assignment instructions.
-2. Redesign the website on the HTML and CSS side of things.
 
 ## Assignment
 
