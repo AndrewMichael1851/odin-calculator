@@ -1,5 +1,5 @@
 /****************************/
-/*** Odin Calculator v0.3 ***/
+/*** Odin Calculator v1.0 ***/
 /****************************/
 
 // Add the storage variables for the output screen.
