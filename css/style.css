@@ -127,3 +127,20 @@ button {
 .blue:active {
     background-color: var(--button-blue-active);
 }
+
+/*** Mobile Styles *********************/
+@media only screen and (max-width: 500px) {
+    h1,
+    p {
+        margin: 8px;
+    }
+
+    .calculator {
+        width: 85vw;
+        padding: 1em;
+        margin: 1em;
+    }
+
+    .screen-current {
+        min-height: 45px;
+    }
