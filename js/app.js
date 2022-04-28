@@ -69,6 +69,10 @@ function resetScreen() {
     resetScreenController = false;
 }
 
+function roundResult(input) {
+    return Math.round(input * 100000) / 100000;
+}
+
 // Event listener functions that control the program.
 function appendNewNumber(newNumber) {
     if (currentOperationScreen.textContent === '0' || resetScreenController) {
@@ -96,7 +100,7 @@ function evaluateEquation() {
         return;
     }
     secondOperand = currentOperationScreen.textContent;
-    currentOperationScreen.textContent = operate(currentOperator, firstOperand, secondOperand);
+    currentOperationScreen.textContent = roundResult(operate(currentOperator, firstOperand, secondOperand));
     lastOperationScreen.textContent = `${firstOperand} ${currentOperator} ${secondOperand} =`;
     currentOperator = null;
 }
