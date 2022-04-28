@@ -15,7 +15,8 @@ As usual with these things, there are elements of this project that are not goin
 Important Note: Before you get started with this calculator project, we need to cover a word of warning. As you look into how to evaluate complex mathematical statements in JavaScript, you will likely come across the tantalizing eval() function. However, this function can be very dangerous and should not ever be used! You’ll need to build your own functions to evaluate expressions as part of this calculator project. On the same note, when researching how to calculate expressions for this project, you may encounter solutions that suggest that you return a new Function() that evaluates a string. Similarly to eval(), this should not be used due to potential pitfalls of evaluating insecure data. Besides, where’s the fun in solutions that do all the work for you? Let’s get to it!
 
 ## Todo
-1. N/A
+1. Refactor the code to better align with the assignment instructions.
+2. Redesign the website on the HTML and CSS side of things.
 
 ## Assignment
 
@@ -50,6 +51,9 @@ This project primarily uses basic Javascript methods, specifically for arrays. I
 
 ## Reflections
 N/A
+
+## Disclaimer
+This calculator was inspired by the most popular one on The Odin Project (mostly because I'm bad at colors). You can find this inspiration here: https://github.com/michalosman/calculator.
 
 ## View Project
 https://andrewmichael1851.github.io/odin-calculator/

@@ -5,47 +5,59 @@
         <meta name="author" content="Andrew Michael">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <title>Odin Calculator</title>
-        <meta name="description" content="A basic calculator page I made for practice.">
+        <meta name="description" content="A basic calculator I made for The Odin Project.">
         <link rel="shortcut icon" type="image/png" href="./img/andrew-favicon.png"/>
+        <link rel="stylesheet" href="./css/normalize.css">
         <link rel="stylesheet" href="./css/style.css">
+        <!--- JS Files -------------------->
+        <script type="text/javascript" src="./js/app.js" defer></script>
     </head>
     <body>
-        <!--- Main Content ---------------->
-        <main>
+        <main class="main">
+            <!--- Content ::Before  -------------------->
             <h1>Odin Calculator</h1>
             <p>Let's do some math!</p>
-            <div id="calculator">
-                <div id="display">
+            <!--- Calculator Application -------------------->
+            <div class="calculator">
+                <!--- Calculator Display -------------------->
+                <div class="display">
                     <div class="screen-last" id="lastOperationScreen"></div>
                     <div class="screen-current" id="currentOperationScreen">0</div>
                 </div>
-                <div id="keyboard-grid">
-                    <button class="clear red span-2" id="clearButton">CLEAR</button>
-                    <button class="refresh blue span-2" id="deleteButton">REFRESH</button>
+                <!--- Calculator Buttons -------------------->
+                <div class="button-grid">
+                    <button class="button red span-2" id="clearButton" onclick="this.blur();">CLEAR</button>
+                    <button class="button blue span-2" id="refreshButton" onclick="this.blur();">REFRESH</button>
 
-                    <button class="button">7</button>
-                    <button class="button">8</button>
-                    <button class="button">9</button>
-                    <button class="button" id="divisionButton">/</button>
+                    <button class="button" onclick="this.blur();" data-number>7</button>
+                    <button class="button" onclick="this.blur();" data-number>8</button>
+                    <button class="button" onclick="this.blur();" data-number>9</button>
+                    <button class="button" onclick="this.blur();" data-operator>/</button>
 
-                    <button class="button">4</button>
-                    <button class="button">5</button>
-                    <button class="button">6</button>
-                    <button class="button" id="multiplyButton">*</button>
+                    <button class="button" onclick="this.blur();" data-number>4</button>
+                    <button class="button" onclick="this.blur();" data-number>5</button>
+                    <button class="button" onclick="this.blur();" data-number>6</button>
+                    <button class="button" onclick="this.blur();" data-operator>*</button>
 
-                    <button class="button">1</button>
-                    <button class="button">2</button>
-                    <button class="button">3</button>
-                    <button class="button" id="additionButton">+</button>
+                    <button class="button" onclick="this.blur();" data-number>1</button>
+                    <button class="button" onclick="this.blur();" data-number>2</button>
+                    <button class="button" onclick="this.blur();" data-number>3</button>
+                    <button class="button" onclick="this.blur();" data-operator>-</button>
 
-                    <button class="button" id="pointButton">.</button>
-                    <button class="button">0</button>
-                    <button class="button" id="equalsButton">=</button>
-                    <button class="button" id="subtractionButton">-</button>
+                    <button class="button" onclick="this.blur();" id="pointButton">.</button>
+                    <button class="button" onclick="this.blur();" data-number>0</button>
+                    <button class="button" onclick="this.blur();" id="equalsButton">=</button>
+                    <button class="button" onclick="this.blur();" data-operator>+</button>
                 </div>
             </div>
+            <!--- Copyright Info -------------------->
+            <p>
+                Copyright ©
+                <script type="text/javascript">
+                    document.write(new Date().getFullYear());
+                </script>
+                Andrew D. Michael
+            </p>
         </main>
-        <!--- JS Files -------------------->
-        <script type="text/javascript" src="./js/app.js"></script>
     </body>
 </html>
