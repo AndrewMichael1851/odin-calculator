@@ -6,6 +6,7 @@
 let firstOperand = '';
 let secondOperand = '';
 let currentOperator = null;
+let resetScreenController = false;
 
 // Add the event listener constants.
 const equalsButton = document.getElementById('equalsButton');
@@ -62,17 +63,75 @@ function operate(operator, a, b) {
     }
 }
 
-// Event listener controllers that call relevant functions.
-equalsButton.addEventListener('click', /* Evaluate Function */);
-clearButton.addEventListener('click', /* Clear Function */);
-refreshButton.addEventListener('click', /* Refresh Function */);
-pointButton.addEventListener('click', /* Append Decimal Function */);
+// Utility functions.
+function resetScreen() {
+    currentOperationScreen.textContent = '';
+    resetScreenController = false;
+}
+
+// Event listener functions that control the program.
+function appendNewNumber(newNumber) {
+    if (currentOperationScreen.textContent === '0' || resetScreenController) {
+        resetScreen();
+    }
+    currentOperationScreen.textContent += newNumber;
+}
+
+function setOperator(operator) {
+    if (currentOperator != null) {
+        evaluateEquation();
+    }
+    firstOperand = currentOperationScreen.textContent;
+    currentOperator = operator;
+    lastOperationScreen.textContent = `${firstOperand} ${currentOperator}`
+    resetScreenController = true;
+}
+
+function evaluateEquation() {
+    if (currentOperator === null || resetScreenController) {
+        return;
+    }
+    if (currentOperator === '/' && currentOperationScreen.textContent === '0') {
+        alert('ERROR: Divide by zero');
+        return;
+    }
+    secondOperand = currentOperationScreen.textContent;
+    currentOperationScreen.textContent = operate(currentOperator, firstOperand, secondOperand);
+    lastOperationScreen.textContent = `${firstOperand} ${currentOperator} ${secondOperand} =`;
+    currentOperator = null;
+}
+
+function clearScreen() {
+    currentOperationScreen.textContent = '0';
+    lastOperationScreen.textContent = '';
+    firstOperand = '';
+    secondOperand = '';
+    currentOperator = null;
+}
+
+function appendDecimal() {
+    if (resetScreenController) {
+        resetScreen();
+    }
+    if (currentOperationScreen.textContent === '') {
+        currentOperationScreen.textContent = '0';
+    }
+    if (currentOperationScreen.textContent.includes('.')) {
+        return;
+    }
+    currentOperationScreen.textContent += '.';
+}
 
 // Event listener controllers for button clicks.
 numberButtons.forEach((button) => {
-    button.addEventListener('click', () => /* Append Number Function */)
+    button.addEventListener('click', () => appendNewNumber(button.textContent));
 });
 
 operatorButtons.forEach((button) => {
-    button.addEventListener('click', () => /* Set Operation Function */)
+    button.addEventListener('click', () => setOperator(button.textContent));
 });
+
+// Event listener controllers that call relevant functions.
+equalsButton.addEventListener('click', evaluateEquation);
+clearButton.addEventListener('click', clearScreen);
+pointButton.addEventListener('click', appendDecimal);

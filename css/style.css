@@ -83,8 +83,8 @@ button {
     grid-gap: 10px;
 }
 
-.span-2 {
-    grid-column: span 2;
+.span-4 {
+    grid-column: span 4;
 }
 
 /*** Button Specific Styles *********************/
