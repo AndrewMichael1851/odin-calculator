@@ -51,8 +51,5 @@ This project primarily uses basic Javascript methods, specifically for arrays. I
 ## Reflections
 N/A
 
-## Disclaimer
-This calculator was inspired by the most popular one on The Odin Project (mostly because I'm bad at colors). You can find this inspiration here: https://github.com/michalosman/calculator.
-
 ## View Project
 https://andrewmichael1851.github.io/odin-calculator/
